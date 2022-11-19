@@ -3,7 +3,8 @@ import {Avatar, Button, FormGroup, Grid, Paper, TextField} from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
-import {signUpApi} from '../Apis/Apis.js'
+import {signUpApi} from '../Apis/Apis.js';
+import axios from 'axios';
 
 const SignUp = () => {
     const paperStyle={padding:20, width:250 ,margin: '20px auto'};
@@ -13,12 +14,18 @@ const SignUp = () => {
     const [user, setUser] = useState({
         name: "",
         email: "",
-        phoneNumber: "",
+        phoneNumber: 0,
         password: ""
     });
     const {name, email, phoneNumber, password} =user;
+
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value});
+    }
+
+    async function signup() {
+        let results= await axios.post("http://127.0.0.1:8000/api/register", user);
+        return results;
     }
 
     return(
@@ -36,7 +43,7 @@ const SignUp = () => {
                 <FormGroup>
                     <FormControlLabel control={<Checkbox />} label="I accept the terms and conditions" style={inputStyle} />
                 </FormGroup>
-                <Button type="submit" color="primary" variant="contained" onClick={signUpApi(user)} fullWidth>Sign Up</Button>            
+                <Button type="submit" color="primary" variant="contained" onClick={signup()} fullWidth>Sign Up</Button>            
             </Paper>
         </Grid>
     )
