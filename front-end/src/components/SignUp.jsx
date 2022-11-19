@@ -14,18 +14,12 @@ const SignUp = () => {
     const [user, setUser] = useState({
         name: "",
         email: "",
-        phoneNumber: 0,
         password: ""
     });
-    const {name, email, phoneNumber, password} =user;
+    const {name, email, password} =user;
 
     const onInputChange = e => {
-        setUser({ ...user, [e.target.name]: e.target.value});
-    }
-
-    async function signup() {
-        let results= await axios.post("http://127.0.0.1:8000/api/register", user);
-        return results;
+        setUser({ ...user, [e.target.name]: e.target.value });
     }
 
     return(
@@ -38,12 +32,12 @@ const SignUp = () => {
                 
                 <TextField label="Full Name" placeholder="Fist name, last name" name="name" value= {name} variant="standard" fullwidth required style={inputStyle} onChange={e => onInputChange(e)}/>
                 <TextField label="Email" placeholder="Enter you Email"  name="email" value= {email} variant="standard" fullwidth required style={inputStyle} onChange={e => onInputChange(e)}/>
-                <TextField label="Phone number" type="number" placeholder="Enter you Phone number" name="phoneNumber" value= {phoneNumber} variant="standard" fullwidth required style={inputStyle} onChange={e => onInputChange(e)}/>
+                {/* <TextField label="Phone number" placeholder="Enter you Phone number" name="phoneNumber" value= {phoneNumber} variant="standard" fullwidth required style={inputStyle} onChange={e => onInputChange(e)}/> */}
                 <TextField label="Password" placeholder="Enter you username" name="password" value= {password} type="password" variant="standard" fullwidth required style={inputStyle} onChange={e => onInputChange(e)}/>
                 <FormGroup>
                     <FormControlLabel control={<Checkbox />} label="I accept the terms and conditions" style={inputStyle} />
                 </FormGroup>
-                <Button type="submit" color="primary" variant="contained" onClick={signup()} fullWidth>Sign Up</Button>            
+                <Button type="submit" color="primary" variant="contained" onClick={()=>signUpApi(user)} fullWidth>Sign Up</Button>            
             </Paper>
         </Grid>
     )
