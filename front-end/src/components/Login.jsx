@@ -6,6 +6,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 const Login = () => {
     const paperStyle={padding:20, height: '70vh', width:200 ,margin: '20px auto'};
     const avatartStyle={backgroundColor:'green'};
+    const inputStyle={marginBottom:1};
     return(
         <Grid>
             <Paper elevation={1} style={paperStyle}>
@@ -13,7 +14,11 @@ const Login = () => {
                     <Avatar style={avatartStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Login</h2> 
                 </Grid>
-                <TextField id="standard-basic" label="Username" placeholder="HAHA" />
+                
+                <TextField label="Username" placeholder="Enter you username" variant="standard" fullwidth required style={inputStyle}/>
+                <TextField label="Password" placeholder="Enter you username" type="password" variant="standard" fullwidth required style={inputStyle}/>
+            
+
                 
             </Paper>
         </Grid>
