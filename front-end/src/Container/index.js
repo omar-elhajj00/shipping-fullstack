@@ -9,6 +9,9 @@ const SignInOutContainer = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     }
+
+    const paperStyle={width:300, margin:"20px auto"};
+
     //TabPanel
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
@@ -22,7 +25,7 @@ const SignInOutContainer = () => {
             {...other}
           >
             {value === index && (
-              <Box p={3}>
+              <Box>
                 <Typography>{children}</Typography>
               </Box>
             )}
@@ -31,7 +34,7 @@ const SignInOutContainer = () => {
       }
 
     return(
-        <Paper square>
+        <Paper style={paperStyle} square>
             <Tabs
             value={value}
             indicatorColor="primary"

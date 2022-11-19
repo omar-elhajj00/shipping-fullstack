@@ -6,7 +6,7 @@ import Checkbox from "@mui/material/Checkbox/Checkbox";
 
 
 const Login = () => {
-    const paperStyle={padding:20, height: '75vh', width:200 ,margin: '20px auto'};
+    const paperStyle={padding:20, height: '75vh', width:250 ,margin: '20px auto'};
     const avatartStyle={backgroundColor:'green'};
     const inputStyle={margin:10};
 
@@ -24,12 +24,9 @@ const Login = () => {
                     <FormControlLabel control={<Checkbox />} label="Remember me" style={inputStyle} />
                 </FormGroup>
                 <Button type="submit" color="primary" variant="contained" fullWidth>Login</Button>
-                <Typography style={inputStyle}><Link href="#">Sign Up Here</Link></Typography>
-
-                
+                <Typography style={inputStyle}><Link href="#">Sign Up Here</Link></Typography>       
             </Paper>
         </Grid>
     )
 }
-
 export default Login
