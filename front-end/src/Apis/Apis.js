@@ -3,15 +3,17 @@ import axios from 'axios';
 
 const BASE_URL_SIGNUP="http://127.0.0.1:8000";
 
-export const signUpApi = async (name, email, phoneNumber, password) => {
+export const signUpApi = async (user) => {
     const options ={
+    url:BASE_URL_SIGNUP,
     params: {
-      'name': name,
-      'email': email,
-      'phoneNumber': phoneNumber,
-      'password': password
+      'name': user.name,
+      'email': user.email,
+      'phoneNumber': user.phoneNumber,
+      'password': user.password
     }};
 
     const {data} = await axios.post(`${BASE_URL_SIGNUP}`,options);
+    return data;
 }
 

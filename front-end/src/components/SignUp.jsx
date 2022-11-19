@@ -16,8 +16,7 @@ const SignUp = () => {
         phoneNumber: "",
         password: ""
     });
-    const {name,email,phoneNumber,password}= user;
-
+    const {name, email, phoneNumber, password} =user;
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value});
     }
