@@ -34,7 +34,7 @@ const SignInOutContainer = () => {
       }
 
     return(
-        <Paper style={paperStyle} square>
+        <Paper style={paperStyle}>
             <Tabs
             value={value}
             indicatorColor="primary"
@@ -42,12 +42,12 @@ const SignInOutContainer = () => {
             onChange={handleChange}
             aria-label="disabled tabs example"
             >
-            <Tab label="Login" />
-            <Tab label="Sign Up" />
+                <Tab label="Login" />
+                <Tab label="Sign Up" />
             </Tabs>
             
             <TabPanel value={value} index={0}>
-                <Login />
+                <Login handleChange={handleChange}/>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <SignUp />
