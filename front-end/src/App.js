@@ -1,12 +1,12 @@
 
+import { Container } from '@mui/material';
 import './App.css';
-import {Login, SignUp} from './components';
+import SignInOutContainer from './Container';
 
 function App() {
   return (
     <div className="App">
-      {/* <Login /> */}
-      <SignUp />
+      <SignInOutContainer />
     </div>
   );
 }

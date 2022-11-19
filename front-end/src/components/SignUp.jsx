@@ -5,7 +5,7 @@ import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
 
 const SignUp = () => {
-    const paperStyle={padding:20, width:200 ,margin: '20px auto'};
+    const paperStyle={padding:20, width:250 ,margin: '20px auto'};
     const avatartStyle={backgroundColor:'green'};
     const inputStyle={margin:10};
 
@@ -17,14 +17,14 @@ const SignUp = () => {
                     <h2>Sign Up</h2> 
                 </Grid>
                 
-                <TextField label="Username" placeholder="Enter you username" variant="standard" fullwidth required style={inputStyle}/>
+                <TextField label="Full Name" placeholder="Fist name, last name" variant="standard" fullwidth required style={inputStyle}/>
+                <TextField label="Email" placeholder="Enter you Email" variant="standard" fullwidth required style={inputStyle}/>
+                <TextField label="Phone number" type="number" placeholder="Enter you Phone number" variant="standard" fullwidth required style={inputStyle}/>
                 <TextField label="Password" placeholder="Enter you username" type="password" variant="standard" fullwidth required style={inputStyle}/>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox />} label="Remember me" style={inputStyle} />
+                    <FormControlLabel control={<Checkbox />} label="I accept the terms and conditions" style={inputStyle} />
                 </FormGroup>
-                <Button type="submit" color="primary" variant="contained" fullWidth>Sign in</Button>
-
-                
+                <Button type="submit" color="primary" variant="contained" fullWidth>Sign Up</Button>            
             </Paper>
         </Grid>
     )
