@@ -7,7 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import MenuIcon from '@mui/icons-material/Menu';
+
+import Navbar from './Navbar';
+
 
 
 const Home = () => {
@@ -25,29 +27,8 @@ const Home = () => {
   
   return (
     // Navbar
-    <Box> 
-      <Box sx={{ flexGrow: 6 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Shipments
-            </Typography>
-            <Button color="inherit">Create</Button>
-            <Button color="inherit">Logout</Button>
-            
-          </Toolbar>
-        </AppBar>
-      </Box>
-
+    <Box>
+      <Navbar />
       {/* table */}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
