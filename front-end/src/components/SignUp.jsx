@@ -4,7 +4,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
 import {signUpApi} from '../Apis/Apis.js';
-import axios from 'axios';
+// import axios from 'axios';
 
 const SignUp = () => {
     const paperStyle={padding:20, width:250 ,margin: '20px auto'};
