@@ -28,14 +28,13 @@ export const signInApi = async(user) => {
 export const createShipmentApi = async (shipment) => {
     await axios.post(BASE_URL_CREATE_CHIPMENT, shipment)
         .then(response => console.log(response.data))
-        .catch(err => console.log(err));
+        .catch(error => console.log(error));
 }
 //delete shipment 
 export const deleteShipmentApi = async(paybill) => {
-    let {data} = await axios.delete(`${BASE_URL_DELETE_CHIPMENT}/${paybill}`);
-    return {data};
-        // .then(response => console.log(response.data))
-        // .catch(err => console.log(err))
+    await axios.delete(`${BASE_URL_DELETE_CHIPMENT}/${paybill}`)
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
 
     
 

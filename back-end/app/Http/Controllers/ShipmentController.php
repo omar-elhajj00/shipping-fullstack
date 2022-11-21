@@ -106,6 +106,8 @@ class ShipmentController extends Controller
         if($result){
             return response()->json(['message'=>'deleted successfuly']);
         }
-        
+        else{
+            return response()->json(["message"=> "Something wrong! kindly check if you entered the correct paybill or the item already deleted "]);
+        }
     }
 }
