@@ -1,9 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
+//landing page base urls
+const BASE_URL_SIGNUP= "http://127.0.0.1:8000/api/register";
+const BASE_URL_LOGIN= "http://127.0.0.1:8000/api/login";
 
-const BASE_URL_SIGNUP="http://127.0.0.1:8000/api/register";
-const BASE_URL_LOGIN="http://127.0.0.1:8000/api/login";
+//shipments urls
+const BASE_URL_CREATE_CHIPMENT = "http://127.0.0.1:8000/api/createShipment";
+
+
 
 //sign up a new user
 export const signUpApi = async (user) => {
@@ -18,4 +23,8 @@ export const signInApi = async(user) => {
     // .then(response => console.log(response.data))
     // .catch(error => console.log(error));
         
+}
+
+export const createSipmentApi = async (shipment) => {
+    await axios.post(BASE_URL_CREATE_CHIPMENT, shipment)
 }

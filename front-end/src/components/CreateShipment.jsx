@@ -46,9 +46,6 @@ const CreateShipment = ({open,setOpen}) => {
                         </Tooltip>
                     </Grid>
                 </Grid>
-                
-                
-            
             <TextField id="standard-basic" label="paybill" variant="standard" placeholder='PayBill' sx={{ mb: 2 }} fullWidth/>
             <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth/>
             <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name' sx={{ mb: 2 }} fullWidth/>
