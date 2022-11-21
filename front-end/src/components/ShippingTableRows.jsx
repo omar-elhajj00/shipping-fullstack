@@ -2,6 +2,8 @@ import React from 'react';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ShippingTableRows = () => {
     function createData(name, calories, fat, carbs, protein) {
@@ -28,7 +30,7 @@ const ShippingTableRows = () => {
             <TableCell align="right">{row.calories}</TableCell>
             <TableCell align="right">{row.fat}</TableCell>
             <TableCell align="right">{row.carbs}</TableCell>
-            <TableCell align="right">{row.protein}</TableCell>
+            <TableCell align="right"><Button><DeleteIcon /></Button></TableCell>
         </TableRow>
         ))}
     </TableBody>

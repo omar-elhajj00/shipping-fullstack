@@ -21,5 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //users
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
-//shipments 
+//create shipments 
 Route::post('createShipment', [ShipmentController::class, 'store']);
+//delete shipment
+Route::delete('deleteShipment/{id}', [ShipmentController::class, 'deleteShipment']);

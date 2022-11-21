@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shipment;
+use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -99,8 +100,14 @@ class ShipmentController extends Controller
      * @param  \App\Models\Shipment  $shipment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shipment $shipment)
+    public function deleteShipment($paybill)
     {
-        //
+        $result= Shipment::where('id', $paybill)->delete();
+        if($result){
+            return response()->json(['message'=>'deleted successfuly']);
+        }
+        else{
+            return response()->json(['message'=>'operation failed']);
+        }
     }
 }

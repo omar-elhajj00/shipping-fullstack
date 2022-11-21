@@ -22,7 +22,6 @@ export const signInApi = async(user) => {
     return data;
     // .then(response => console.log(response.data))
     // .catch(error => console.log(error));
-        
 }
 
 export const createShipmentApi = async (shipment) => {
