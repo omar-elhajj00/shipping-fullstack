@@ -35,10 +35,23 @@ class ShipmentController extends Controller
      */
     public function store(Request $request)
     {
+        //get the data from axios
         $paybill = $req->input('paybill');
         $customerName = $req->input('customerName');
         $customerAddress = $req->input('customerAddress');
         $customerPhone = $req->input('customerPhone');
+
+        //implement the data int database
+        DB::table('shipments')->insert([
+            'paybill' => $paybill,
+            'customer-name' => $customerName,
+            'customer-address' => $customerAddress,
+            'customer-phone' => $customerPhone
+
+        ]);
+        
+
+
     }
 
     /**
