@@ -25,8 +25,8 @@ export const signInApi = async(user) => {
         
 }
 
-export const createSipmentApi = async (shipment) => {
+export const createShipmentApi = async (shipment) => {
     const {data} = await axios.post(BASE_URL_CREATE_CHIPMENT, shipment);
     return data;
-    
+
 }

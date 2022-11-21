@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 import { Grid, TextField, Tooltip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
-
+import {createShipmentApi} from '../Apis/Apis'
 
 
 const CreateShipment = ({open,setOpen}) => {
@@ -35,13 +35,8 @@ const CreateShipment = ({open,setOpen}) => {
       const onInputChange = (e) => {
         setShipment({...shipment, [e.target.name]: e.target.value});
       }
-      //create shipment
-      const createShipment= () => {
-
-      }
-
       
-    //   const handleOpen = () => setOpen(true);
+
     const handleClose = () => setOpen(false);
   return (
     <Modal
@@ -70,7 +65,7 @@ const CreateShipment = ({open,setOpen}) => {
             <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name ' sx={{ mb: 2 }} fullWidth name="customerName" value={customerName} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
-            <Button variant="contained" size="large" onClick={createShipment}>Submit</Button>
+            <Button variant="contained" size="large" onClick={() => createShipmentApi(shipment)}>Submit</Button>
 
         </Box>
       </Modal>  
