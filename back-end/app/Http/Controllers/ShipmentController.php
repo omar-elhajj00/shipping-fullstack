@@ -24,7 +24,7 @@ class ShipmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function store()
     {
         //
     }
@@ -35,7 +35,7 @@ class ShipmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
         //get the data from axios
 
@@ -66,13 +66,12 @@ class ShipmentController extends Controller
      * @param  \App\Models\Shipment  $shipment
      * @return \Illuminate\Http\Response
      */
-    public function show(Shipment $shipment)
-    {
-        //
-    }
-
+    
+    public function show(){
+        return Shipment::all();
+    }  
     /**
-     * Show the form for editing the specified resource.
+     
      *
      * @param  \App\Models\Shipment  $shipment
      * @return \Illuminate\Http\Response
