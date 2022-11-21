@@ -35,7 +35,10 @@ class ShipmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paybill = $req->input('paybill');
+        $customerName = $req->input('customerName');
+        $customerAddress = $req->input('customerAddress');
+        $customerPhone = $req->input('customerPhone');
     }
 
     /**

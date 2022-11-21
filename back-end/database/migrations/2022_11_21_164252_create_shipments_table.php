@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string("paybill");
+            $table->string("customer-name");
+            $table->text("customer-address");
+            $table->string("customer-phone");
         });
     }
 
