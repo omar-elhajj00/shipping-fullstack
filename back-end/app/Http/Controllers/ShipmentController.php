@@ -37,19 +37,23 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         //get the data from axios
+
         $paybill = $request->input('paybill');
         $customerName = $request->input('customerName');
         $customerAddress = $request->input('customerAddress');
         $customerPhone = $request->input('customerPhone');
 
         //implement the data int database
-        DB::table('shipments')->insert([
+
+        if (DB::table('shipments')->insert([
             'paybill' => $paybill,
             'customer-name' => $customerName,
             'customer-address' => $customerAddress,
             'customer-phone' => $customerPhone
 
-        ]);
+        ])){
+            return response()->json(['message' =>'submission complete']);
+        }
         
 
 
