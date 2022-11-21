@@ -7,7 +7,7 @@ import CreateShipment from './CreateShipment';
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    // const handleClose = () => setOpen(false);
   return (
     <Box sx={{ flexGrow: 6 }}>
       <AppBar position="static">

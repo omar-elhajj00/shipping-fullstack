@@ -21,7 +21,7 @@ const SignUp = () => {
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
-
+    
     return(
         <Grid>
             <Paper elevation={1} style={paperStyle}>
