@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shipment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ShipmentController extends Controller
 {
@@ -36,10 +37,10 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         //get the data from axios
-        $paybill = $req->input('paybill');
-        $customerName = $req->input('customerName');
-        $customerAddress = $req->input('customerAddress');
-        $customerPhone = $req->input('customerPhone');
+        $paybill = $request->input('paybill');
+        $customerName = $request->input('customerName');
+        $customerAddress = $request->input('customerAddress');
+        $customerPhone = $request->input('customerPhone');
 
         //implement the data int database
         DB::table('shipments')->insert([
