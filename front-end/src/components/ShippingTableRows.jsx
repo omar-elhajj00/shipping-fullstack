@@ -4,6 +4,8 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import { deleteShipmentApi } from '../Apis/Apis';
 
 const ShippingTableRows = () => {
     function createData(name, calories, fat, carbs, protein) {
@@ -30,7 +32,10 @@ const ShippingTableRows = () => {
             <TableCell align="right">{row.calories}</TableCell>
             <TableCell align="right">{row.fat}</TableCell>
             <TableCell align="right">{row.carbs}</TableCell>
-            <TableCell align="right"><Button><DeleteIcon /></Button></TableCell>
+            <TableCell align="right">
+                <Button onClick={() => deleteShipmentApi('omar123')}><DeleteIcon /></Button>
+                <Button><EditIcon /></Button>
+            </TableCell>
         </TableRow>
         ))}
     </TableBody>

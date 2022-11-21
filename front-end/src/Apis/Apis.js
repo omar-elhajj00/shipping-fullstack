@@ -7,6 +7,7 @@ const BASE_URL_LOGIN= "http://127.0.0.1:8000/api/login";
 
 //shipments urls
 const BASE_URL_CREATE_CHIPMENT = "http://127.0.0.1:8000/api/createShipment";
+const BASE_URL_DELETE_CHIPMENT = "http://127.0.0.1:8000/api/deleteShipment";
 
 
 
@@ -28,6 +29,14 @@ export const createShipmentApi = async (shipment) => {
     await axios.post(BASE_URL_CREATE_CHIPMENT, shipment)
         .then(response => console.log(response.data))
         .catch(err => console.log(err));
+}
+//delete shipment 
+export const deleteShipmentApi = async(paybill) => {
+    let {data} = await axios.delete(`${BASE_URL_DELETE_CHIPMENT}/${paybill}`);
+    return {data};
+        // .then(response => console.log(response.data))
+        // .catch(err => console.log(err))
+
     
 
 }

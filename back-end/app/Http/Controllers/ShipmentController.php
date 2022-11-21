@@ -102,12 +102,10 @@ class ShipmentController extends Controller
      */
     public function deleteShipment($paybill)
     {
-        $result= Shipment::where('id', $paybill)->delete();
+        $result= Shipment::where('paybill', $paybill)->delete();
         if($result){
             return response()->json(['message'=>'deleted successfuly']);
         }
-        else{
-            return response()->json(['message'=>'operation failed']);
-        }
+        
     }
 }
