@@ -3,7 +3,7 @@ import { Box, AppBar, Toolbar, IconButton, Typography, Drawer, Button } from '@m
 
 
 import Navbar from './Navbar';
-import ShippingTable from './Table';
+import ShippingTable from './ShippingTable';
 
 
 
