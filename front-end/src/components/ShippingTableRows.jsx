@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { deleteShipmentApi } from '../Apis/Apis';
+import { deleteShipmentApi, getAllShipmentsRequest } from '../Apis/Apis';
 
 const ShippingTableRows = () => {
     function createData(name, calories, fat, carbs, protein) {
@@ -18,6 +18,11 @@ const ShippingTableRows = () => {
         createData('Cupcake', 305, 3.7, 67, 4.3),
         createData('Gingerbread', 356, 16.0, 49, 3.9),
     ];
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getAllShipmentsRequest();
+    },[]);
 
   return (
     <TableBody>
@@ -34,7 +39,7 @@ const ShippingTableRows = () => {
             <TableCell align="right">{row.carbs}</TableCell>
             <TableCell align="right">
                 <Button onClick={() => deleteShipmentApi('asdasdfkdjfbkjfdsjkjykilop')}><DeleteIcon /></Button>
-                <Button><EditIcon /></Button>
+                <Button onClick={()=>{}}><EditIcon /></Button>
             </TableCell>
         </TableRow>
         ))}
