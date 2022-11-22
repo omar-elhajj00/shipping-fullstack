@@ -40,8 +40,14 @@ export const deleteShipmentApi = async(paybill) => {
 }
 //get all the shipment list
 export const getAllShipmentsRequest = async ({data,setData}) => {
-    const results = await fetch(BASE_URL_GET_ALL_SHIPMENTS);
+    let results = await fetch(BASE_URL_GET_ALL_SHIPMENTS)
+        .then(response=>{
+            console.log(response.data);
+        
+        })
+        .catch(error =>console.log(error));
     results = await results.json();
+    debugger
     setData(results);
     
 }

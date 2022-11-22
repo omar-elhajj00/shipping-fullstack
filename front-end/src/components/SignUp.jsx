@@ -1,15 +1,39 @@
 import React, {useState} from "react";
-import {Avatar, Button, FormGroup, Grid, Paper, TextField} from '@mui/material';
+import {Alert, Avatar, Button, FormGroup, Grid, Paper, Snackbar, TextField} from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
 import {useNavigate, Route, Routes} from 'react-router-dom';
 import {signUpApi} from '../Apis/Apis.js';
+import Fade from '@mui/material/Fade';
 
 const SignUp = () => {
     const paperStyle={padding:20, width:250 ,margin: '20px auto'};
     const avatartStyle={backgroundColor:'green'};
     const inputStyle={margin:10};
+
+    //snackbar
+    const [snack, setSnack] = React.useState({
+        open: false,
+        vertical: 'bottom',
+        horizontal: 'left',
+      });
+      const { vertical, horizontal, open } = snack;
+
+    const handleClickSnack = () => {
+        setSnack({
+            ...snack,
+          open: true,
+          
+        });
+      };
+
+      const handleCloseSnack = () => {
+        setSnack({
+          ...snack,
+          open: false,
+        });
+      };
 
     const navigate= useNavigate();
     const [user, setUser] = useState({
@@ -23,12 +47,21 @@ const SignUp = () => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
 
-    const signUpOperation = () => {
+    //sleep function 
+    function sleep(ms){
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    async function signUpOperation() {
         // const history = useHistory();
         const signUpReq =signUpApi(user);
         localStorage.setItem('userInfo',signUpReq);
+        await sleep(1000);
+        handleClickSnack();
+        await sleep(3000);
         navigate("./Home");
+        
     }
+    
     
     return(
         <Grid>
@@ -44,13 +77,19 @@ const SignUp = () => {
                 <FormGroup>
                     <FormControlLabel control={<Checkbox />} label="I accept the terms and conditions" style={inputStyle} />
                 </FormGroup>
-                {/* <Routes>
-                    <Route> */}
                         <Button type="submit" color="primary" variant="contained" onClick={signUpOperation} fullWidth>Sign Up</Button>
-                    {/* </Route>
-                </Routes> */}
             </Paper>
+            {/* success message */}
+            <Snackbar
+                anchorOrigin={{ vertical, horizontal }}
+                open={open}
+                onClose={handleCloseSnack}
+                message="Registerd successfully"
+                key={vertical + horizontal}
+            />
         </Grid>
+        
+        
     )
 }
 

@@ -12,21 +12,32 @@ const ShippingTableRows = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getAllShipmentsRequest({data,setData});
+        async function getShipments(){
+            let results= await fetch("http://127.0.0.1:8000/api/showShipments");
+                // .then(response=>console.log(response.data))
+                // .catch(error =>console.log(error));
+            results = await results.json();
+            setData(results);
+        }
+        getShipments();
+        // getAllShipmentsRequest({data,setData});
+        
+            
+        
     },[]);
     
     console.warn("result", data); 
 
-    function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
-    }
-    const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-    ];
+    // function createData(name, calories, fat, carbs, protein) {
+    //     return { name, calories, fat, carbs, protein };
+    // }
+    // const rows = [
+    //     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    //     createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    //     createData('Eclair', 262, 16.0, 24, 6.0),
+    //     createData('Cupcake', 305, 3.7, 67, 4.3),
+    //     createData('Gingerbread', 356, 16.0, 49, 3.9),
+    // ];
     // console.log(data);
   return (
     <TableBody>
