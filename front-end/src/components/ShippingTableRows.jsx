@@ -21,8 +21,10 @@ const ShippingTableRows = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getAllShipmentsRequest();
-    },[]);
+        let results= getAllShipmentsRequest();
+        setData(results);
+    },[])
+    console.warn("result", data);
 
   return (
     <TableBody>
