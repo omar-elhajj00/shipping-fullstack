@@ -14,8 +14,8 @@ const BASE_URL_GET_ALL_SHIPMENTS = "http://127.0.0.1:8000/api/showShipments";
 
 //sign up a new user
 export const signUpApi = async (user) => {
-    let {data} = await axios.post(`${BASE_URL_SIGNUP}`,user);
-    return await {data}.json();
+    const {data} = await axios.post(`${BASE_URL_SIGNUP}`,user);
+    return data;
 }
 
 //user login
@@ -40,5 +40,7 @@ export const deleteShipmentApi = async(paybill) => {
 //get all the shipment list
 export const getAllShipmentsRequest = async () => {
     const {data} = await axios.get(BASE_URL_GET_ALL_SHIPMENTS);
+    
     return data;
+    
 }

@@ -8,6 +8,15 @@ import EditIcon from '@mui/icons-material/Edit';
 import { deleteShipmentApi, getAllShipmentsRequest } from '../Apis/Apis';
 
 const ShippingTableRows = () => {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        let results= getAllShipmentsRequest();
+        setData(results);
+    },[])
+    console.warn("result", data); 
+
     function createData(name, calories, fat, carbs, protein) {
         return { name, calories, fat, carbs, protein };
     }
@@ -18,33 +27,45 @@ const ShippingTableRows = () => {
         createData('Cupcake', 305, 3.7, 67, 4.3),
         createData('Gingerbread', 356, 16.0, 49, 3.9),
     ];
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        let results= getAllShipmentsRequest();
-        setData(results);
-    },[])
-    console.warn("result", data);
+    console.log(data);
+    
 
   return (
     <TableBody>
-        {rows.map((row) => (
-        <TableRow
-            key={row.name}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-        >
+        
+            {
+                data.map((item)=>
+                    <TableRow
+                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                        debugger
+                        <TableCell component="th" scope="row">
+                            {item.paybill}
+                        </TableCell>
+                        <TableCell align="right">{item[1]}</TableCell>
+                        <TableCell align="right">{item[2]}</TableCell>
+                        <TableCell align="right">{item[3]}</TableCell>
+                        <TableCell align="right"> 
+                            <Button onClick={() => deleteShipmentApi('asdasdfkdjfbkjfdsjkjykilop')}><DeleteIcon /></Button>
+                            <Button onClick={()=>{}}><EditIcon /></Button>
+                        </TableCell>
+                    </TableRow>
+                )
+            }
+            {/* <TableRow> 
             <TableCell component="th" scope="row">
             {row.name}
             </TableCell>
-            <TableCell align="right">{row.calories}</TableCell>
+             <TableCell align="right">{row.calories}</TableCell>
             <TableCell align="right">{row.fat}</TableCell>
             <TableCell align="right">{row.carbs}</TableCell>
             <TableCell align="right">
                 <Button onClick={() => deleteShipmentApi('asdasdfkdjfbkjfdsjkjykilop')}><DeleteIcon /></Button>
                 <Button onClick={()=>{}}><EditIcon /></Button>
             </TableCell>
-        </TableRow>
-        ))}
+            </TableRow> */}
+        
+        
     </TableBody>
   )
 }
