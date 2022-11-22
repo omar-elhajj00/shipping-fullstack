@@ -5,11 +5,11 @@ const ShippingTableHead = () => {
   return (
     <TableHead>
         <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>PayBill</TableCell>
+            <TableCell align="right">Customer name&nbsp;</TableCell>
+            <TableCell align="right">Customer&nbsp;Phone</TableCell>
+            <TableCell align="right">Customer&nbsp;Address</TableCell>
+            <TableCell align="right">Delete/ Edit</TableCell>
         </TableRow>
     </TableHead>
   )

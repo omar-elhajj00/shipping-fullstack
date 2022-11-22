@@ -48,9 +48,9 @@ class ShipmentController extends Controller
 
         if (DB::table('shipments')->insert([
             'paybill' => $paybill,
-            'customer-name' => $customerName,
-            'customer-address' => $customerAddress,
-            'customer-phone' => $customerPhone
+            'customer_name' => $customerName,
+            'customer_address' => $customerAddress,
+            'customer_phone' => $customerPhone
 
         ])){
             return response()->json(['message' =>'submission complete']);

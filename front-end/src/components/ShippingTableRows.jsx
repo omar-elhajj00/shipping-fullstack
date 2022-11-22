@@ -39,13 +39,13 @@ const ShippingTableRows = () => {
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell component="th" scope="row">
-                            asdas
+                            {item.paybill}  
                         </TableCell>
-                        <TableCell align="right">{item.paybill}</TableCell>
-                        <TableCell align="right">asda</TableCell>
-                        <TableCell align="right">as</TableCell>
+                        <TableCell align="right">{item.customer_name}</TableCell>
+                        <TableCell align="right">{item.customer_phone}</TableCell>
+                        <TableCell align="right">{item.customer_address}</TableCell>
                         <TableCell align="right"> 
-                            <Button onClick={() => deleteShipmentApi('asdasdfkdjfbkjfdsjkjykilop')}><DeleteIcon /></Button>
+                            <Button onClick={() => deleteShipmentApi(item.paybill)}><DeleteIcon /></Button>
                             <Button onClick={()=>{}}><EditIcon /></Button>
                         </TableCell>
                     </TableRow>

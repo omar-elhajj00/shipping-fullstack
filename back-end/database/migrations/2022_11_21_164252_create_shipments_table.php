@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string("paybill");
-            $table->string("name");
-            $table->text("customer-address");
-            $table->string("customer-phone");
+            $table->string("customer_name");
+            $table->text("customer_address");
+            $table->string("customer_phone");
         });
     }
 
