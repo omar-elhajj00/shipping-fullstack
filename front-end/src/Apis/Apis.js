@@ -38,9 +38,9 @@ export const deleteShipmentApi = async(paybill) => {
         .catch(error => console.log(error))
 }
 //get all the shipment list
-export const getAllShipmentsRequest = async () => {
-    const {data} = await axios.get(BASE_URL_GET_ALL_SHIPMENTS);
-    
-    return data;
+export const getAllShipmentsRequest = async ({data,setData}) => {
+    let results = await fetch(BASE_URL_GET_ALL_SHIPMENTS);
+    results = await results.json();
+    setData(results);
     
 }

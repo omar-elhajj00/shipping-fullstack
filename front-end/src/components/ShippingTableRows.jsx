@@ -6,14 +6,17 @@ import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { deleteShipmentApi, getAllShipmentsRequest } from '../Apis/Apis';
+import axios from 'axios';
 
 const ShippingTableRows = () => {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        let results= getAllShipmentsRequest();
-        setData(results);
+        getAllShipmentsRequest({data,setData});
+
+
+        
     },[])
     console.warn("result", data); 
 
@@ -27,29 +30,26 @@ const ShippingTableRows = () => {
         createData('Cupcake', 305, 3.7, 67, 4.3),
         createData('Gingerbread', 356, 16.0, 49, 3.9),
     ];
-    console.log(data);
-    
-
+    // console.log(data);
   return (
     <TableBody>
-        
             {
-                data.map((item)=>
+                Array.from(data).map((item) => (
                     <TableRow
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                        debugger
                         <TableCell component="th" scope="row">
-                            {item.paybill}
+                            asdas
                         </TableCell>
-                        <TableCell align="right">{item[1]}</TableCell>
-                        <TableCell align="right">{item[2]}</TableCell>
-                        <TableCell align="right">{item[3]}</TableCell>
+                        <TableCell align="right">{item.paybill}</TableCell>
+                        <TableCell align="right">asda</TableCell>
+                        <TableCell align="right">as</TableCell>
                         <TableCell align="right"> 
                             <Button onClick={() => deleteShipmentApi('asdasdfkdjfbkjfdsjkjykilop')}><DeleteIcon /></Button>
                             <Button onClick={()=>{}}><EditIcon /></Button>
                         </TableCell>
                     </TableRow>
+                    )
                 )
             }
             {/* <TableRow> 
