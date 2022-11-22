@@ -9,15 +9,12 @@ import { deleteShipmentApi, getAllShipmentsRequest } from '../Apis/Apis';
 import axios from 'axios';
 
 const ShippingTableRows = () => {
-
     const [data, setData] = useState([]);
 
     useEffect(() => {
         getAllShipmentsRequest({data,setData});
-
-
-        
-    },[])
+    },[]);
+    
     console.warn("result", data); 
 
     function createData(name, calories, fat, carbs, protein) {

@@ -13,10 +13,10 @@ class UserController extends Controller
         $user = new User;
         $user-> name= $req->input('name');
         $user-> email= $req->input('email');
+        $user-> phoneNumber= $req->input('phoneNumber');
         $user-> password= Hash::make($req->input('password'));
         $user->save();
         return $user;
-
     }
     
     function login(Request $req){
