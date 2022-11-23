@@ -12,15 +12,15 @@ const ShippingTableRows = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        async function getShipments(){
-            let results= await fetch("http://127.0.0.1:8000/api/showShipments");
-                // .then(response=>console.log(response.data))
-                // .catch(error =>console.log(error));
-            results = await results.json();
-            setData(results);
-        }
-        getShipments();
-        // getAllShipmentsRequest({data,setData});
+        // async function getShipments(){
+        //     let results= await fetch("http://127.0.0.1:8000/api/showShipments");
+        //         // .then(response=>console.log(response.data))
+        //         // .catch(error =>console.log(error));
+        //     results = await results.json();
+        //     setData(results);
+        // }
+        // getShipments();
+        getAllShipmentsRequest({data,setData});
         
             
         

@@ -1,11 +1,10 @@
 import React, {useState} from "react";
-import {Alert, Avatar, Button, FormGroup, Grid, Paper, Snackbar, TextField} from '@mui/material';
+import {Avatar, Button, FormGroup, Grid, Paper, Snackbar, TextField} from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
-import {useNavigate, Route, Routes} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {signUpApi} from '../Apis/Apis.js';
-import Fade from '@mui/material/Fade';
 
 const SignUp = () => {
     const paperStyle={padding:20, width:250 ,margin: '20px auto'};
@@ -54,7 +53,7 @@ const SignUp = () => {
     async function signUpOperation() {
         // const history = useHistory();
         const signUpReq =signUpApi(user);
-        localStorage.setItem('userInfo',signUpReq);
+        localStorage.setItem('userInfo',JSON.stringify(signUpReq));
         await sleep(1000);
         handleClickSnack();
         await sleep(3000);
