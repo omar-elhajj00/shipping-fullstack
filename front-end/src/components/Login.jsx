@@ -23,20 +23,20 @@ const Login = ({handleChange}) => {
         open: false,
         vertical: 'bottom',
         horizontal: 'left',
-      });
+    });
     const { vertical, horizontal, open } = snack;
     const handleClickSnack = () => {
         setSnack({
             ...snack,
           open: true,
         });
-      };
+    };
       const handleCloseSnack = () => {
         setSnack({
           ...snack,
           open: false,
         });
-      };
+    };
     //when changin the input values 
     const onInputChange = e => {
         setUser({...user, [e.target.name]: e.target.value});

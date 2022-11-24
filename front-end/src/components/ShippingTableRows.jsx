@@ -5,7 +5,9 @@ import TableRow from '@mui/material/TableRow';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { deleteShipmentApi, getAllShipmentsRequest, UpdateShipment } from '../Apis/Apis';
+
+import { deleteShipmentApi, getAllShipmentsRequest} from '../Apis/Apis';
+import UpdateShipment from './UpdateShipment';
 
 const ShippingTableRows = () => {
     //database data 
