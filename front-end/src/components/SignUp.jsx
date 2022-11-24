@@ -17,8 +17,7 @@ const SignUp = () => {
         vertical: 'bottom',
         horizontal: 'left',
       });
-      const { vertical, horizontal, open } = snack;
-
+    const { vertical, horizontal, open } = snack;
     const handleClickSnack = () => {
         setSnack({
             ...snack,
@@ -26,7 +25,6 @@ const SignUp = () => {
           
         });
       };
-
       const handleCloseSnack = () => {
         setSnack({
           ...snack,
@@ -34,6 +32,7 @@ const SignUp = () => {
         });
       };
 
+      
     const navigate= useNavigate();
     const [user, setUser] = useState({
         name: "",
@@ -58,7 +57,6 @@ const SignUp = () => {
         handleClickSnack();
         await sleep(1000);
         navigate("./Home");
-        
     }
     
     
