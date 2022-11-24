@@ -15,7 +15,7 @@ export const signUpApi = async (user) => {
 }
 //user login
 export const signInApiRequest = async(user) => {
-    let results= axios.post(
+    let results= await axios.post(
         BASE_URL_LOGIN,
         JSON.stringify(user),
         {

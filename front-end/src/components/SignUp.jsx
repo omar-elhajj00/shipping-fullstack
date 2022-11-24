@@ -10,7 +10,6 @@ const SignUp = () => {
     const paperStyle={padding:20, width:250 ,margin: '20px auto'};
     const avatartStyle={backgroundColor:'green'};
     const inputStyle={margin:10};
-
     //snackbar
     const [snack, setSnack] = React.useState({
         open: false,
