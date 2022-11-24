@@ -96,7 +96,7 @@ class ShipmentController extends Controller
         $customerAddress = $request->input('customerAddress');
         $customerPhone = $request->input('customerPhone');
 
-        //implement the data int database
+        //update the data int database
         $result = Shipment::where('id', $id);
         if ($result->update([
             'paybill' => $paybill,

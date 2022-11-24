@@ -35,9 +35,14 @@ const CreateShipment = ({open,setOpen}) => {
       const onInputChange = (e) => {
         setShipment({...shipment, [e.target.name]: e.target.value});
       }
-      
-
     const handleClose = () => setOpen(false);
+
+    const createShipmentOperation = () => {
+      createShipmentApi(shipment);
+      handleClose();
+      
+    }
+    
   return (
     <Modal
         open={open}
@@ -52,7 +57,6 @@ const CreateShipment = ({open,setOpen}) => {
                         <Typography id="modal-modal-title" variant='h6' component="h2" sx={{ mb:1 }} >
                             Create Shipment
                         </Typography>   
-                        
                     </Tooltip>
                 </Grid>
                 <Grid item alignItems="flex-end">
@@ -65,7 +69,7 @@ const CreateShipment = ({open,setOpen}) => {
             <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name ' sx={{ mb: 2 }} fullWidth name="customerName" value={customerName} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
-            <Button variant="contained" size="large" onClick={() => createShipmentApi(shipment)}>Submit</Button>
+            <Button variant="contained" size="large" onClick={createShipmentOperation}>Submit</Button>
 
         </Box>
       </Modal>  

@@ -24,7 +24,6 @@ export const signUpApi = async (user) => {
     return userInfo;
     
 }
-
 //user login
 export const signInApiRequest = async(user) => {
     let results= axios.post(

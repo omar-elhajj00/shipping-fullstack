@@ -18,7 +18,6 @@ const ShippingTableRows = () => {
     useEffect(() => {
         getAllShipmentsRequest({data,setData});    
     },[]);
-    
     console.warn("result", data); 
 
   return (

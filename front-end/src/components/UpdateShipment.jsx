@@ -1,17 +1,13 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Grid, TextField, Tooltip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
 import {updateShipmentApi} from '../Apis/Apis'
 
-
 const UpdateShipment = ({open,setOpen,shipmentInfo}) => {
-  // console.warn(shipmentInfo);
-    // debugger
     const style = {
         position: 'absolute',
         top: '50%',
@@ -31,20 +27,19 @@ const UpdateShipment = ({open,setOpen,shipmentInfo}) => {
         customerAddress: shipmentInfo.customer_address,
         customerPhone: shipmentInfo.customer_phone
       });
-
+      //parameters of api axios request
       const {shipmentId, paybill, customerName, customerAddress, customerPhone} = shipment;
-      // debugger
       //when one of the input changes
       const onInputChange = (e) => {
         setShipment({...shipment, [e.target.name]: e.target.value});
       }
-    
-    const handleClose = () => setOpen(false);
-    //update operation
-    const updateOperation = () => {
-      updateShipmentApi(shipment);
-      handleClose();
-    }
+      //close the update window
+      const handleClose = () => setOpen(false);
+      //update operation
+      const updateOperation = () => {
+        updateShipmentApi(shipment);
+        handleClose();
+      }
     
   return (
     <Modal
@@ -53,29 +48,28 @@ const UpdateShipment = ({open,setOpen,shipmentInfo}) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
     >
-        <Box sx={style} >
-            <Grid direction={'row'} container justifyContent="space-between">
-                <Grid item xs={6}>
-                    <Tooltip placement="right-start">
-                        <Typography id="modal-modal-title" variant='h6' component="h2" sx={{ mb:1 }} >
-                            Update Shipment
-                        </Typography>   
-                        
-                    </Tooltip>
-                </Grid>
-                <Grid item alignItems="flex-end">
-                    <Tooltip placement="right-end">
-                        <Button onClick={handleClose}><CloseIcon /></Button>
-                    </Tooltip>
-                </Grid>
-            </Grid>
-            <TextField id="standard-basic" label="paybill" variant="standard" placeholder='PayBill' sx={{ mb: 2 }} fullWidth name="paybill" value={paybill} onChange={e => onInputChange(e)} required/>
-            <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name ' sx={{ mb: 2 }} fullWidth name="customerName" value={customerName} onChange={e => onInputChange(e)} required/>
-            <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
-            <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
-            <Button variant="contained" size="large" onClick={updateOperation}>Update</Button>
-        </Box>
-      </Modal>  
+      <Box sx={style} >
+        <Grid direction={'row'} container justifyContent="space-between">
+          <Grid item xs={6}>
+            <Tooltip placement="right-start">
+              <Typography id="modal-modal-title" variant='h6' component="h2" sx={{ mb:1 }} >
+                  Update Shipment
+              </Typography>   
+            </Tooltip>
+          </Grid>
+          <Grid item alignItems="flex-end">
+              <Tooltip placement="right-end">
+                  <Button onClick={handleClose}><CloseIcon /></Button>
+              </Tooltip>
+          </Grid>
+        </Grid>
+        <TextField id="standard-basic" label="paybill" variant="standard" placeholder='PayBill' sx={{ mb: 2 }} fullWidth name="paybill" value={paybill} onChange={e => onInputChange(e)} required/>
+        <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name ' sx={{ mb: 2 }} fullWidth name="customerName" value={customerName} onChange={e => onInputChange(e)} required/>
+        <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
+        <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
+        <Button variant="contained" size="large" onClick={updateOperation}>Update</Button>
+      </Box>
+    </Modal>  
   )
 }
 
