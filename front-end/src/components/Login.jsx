@@ -4,10 +4,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
 import { useState } from "react";
-// import {useHistory} from 'react-router-dom';
 import {signInApiRequest} from '../Apis/Apis'
 import { useNavigate } from "react-router-dom";
-
 
 const Login = ({handleChange}) => {
     const paperStyle={padding:20, height: '75vh', width:250 ,margin: '20px auto'};
@@ -39,15 +37,15 @@ const Login = ({handleChange}) => {
           open: false,
         });
       };
-
-    
     //when changin the input values 
     const onInputChange = e => {
         setUser({...user, [e.target.name]: e.target.value});
     }
+    //sleep js function
     function sleep(ms){
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+    // sign in function
     async function signIn() {
         // const users ={username};
         if (user.email===''){

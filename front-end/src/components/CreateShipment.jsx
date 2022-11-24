@@ -8,7 +8,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import {createShipmentApi} from '../Apis/Apis'
 
-
 const CreateShipment = ({open,setOpen}) => {
   const style = {
       position: 'absolute',
