@@ -8,20 +8,20 @@ Shipping is a full stack web application where the admin can register, login, cr
 
 ## Prerequisite
 
-node v16.17.1
+node v16.17.1 <br/>
 composer 
 
 ## Install
 
 cd front-end <br/>
 npm install<br/>
-cd back-end
+cd back-end<br/>
 php artisan migrate
 
 ## Usage
 
-cd front-end 
-npm start
-cd back-end
-php artisan serve
+cd front-end <br/>
+npm start <br/>
+cd back-end <br/>
+php artisan serve <br/>
 
