@@ -20,8 +20,9 @@ use App\Models\Shipment;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-//users
+//user signup 
 Route::post('register', [UserController::class, 'register']);
+//user sign in
 Route::post('login', [UserController::class, 'login']);
 //create shipments 
 Route::post('createShipment', [ShipmentController::class, 'create']);
