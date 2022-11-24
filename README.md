@@ -13,8 +13,8 @@ composer
 
 ## Install
 
-cd front-end 
-npm install
+cd front-end <br/>
+npm install<br/>
 cd back-end
 php artisan migrate
 
