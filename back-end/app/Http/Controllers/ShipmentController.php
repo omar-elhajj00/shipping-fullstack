@@ -38,26 +38,19 @@ class ShipmentController extends Controller
     public function create(Request $request)
     {
         //get the data from axios
-
         $paybill = $request->input('paybill');
         $customerName = $request->input('customerName');
         $customerAddress = $request->input('customerAddress');
         $customerPhone = $request->input('customerPhone');
-
         //implement the data int database
-
         if (DB::table('shipments')->insert([
             'paybill' => $paybill,
             'customer_name' => $customerName,
             'customer_address' => $customerAddress,
             'customer_phone' => $customerPhone
-
         ])){
             return response()->json(['message' =>'submission complete']);
         }
-        
-
-
     }
 
     /**
@@ -90,12 +83,12 @@ class ShipmentController extends Controller
      */
     public function update(Request $request, Shipment $shipment)
     {
+        //read data from axios request
         $id= $request->input('shipmentId');
         $paybill = $request->input('paybill');
         $customerName = $request->input('customerName');
         $customerAddress = $request->input('customerAddress');
         $customerPhone = $request->input('customerPhone');
-
         //update the data int database
         $result = Shipment::where('id', $id);
         if ($result->update([
@@ -126,6 +119,8 @@ class ShipmentController extends Controller
         }
     }
 
+    //get shipment by id 
+    //not used 
     public function get_shipment_id($id){
         return Shipment::find($id);
     }
