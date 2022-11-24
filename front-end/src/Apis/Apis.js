@@ -1,28 +1,17 @@
-import React from 'react';
 import axios from 'axios';
-
 //landing page base urls
 const BASE_URL_SIGNUP= "http://127.0.0.1:8000/api/register";
 const BASE_URL_LOGIN= "http://127.0.0.1:8000/api/login";
-
 //shipments urls
 const BASE_URL_CREATE_CHIPMENT = "http://127.0.0.1:8000/api/createShipment";
 const BASE_URL_DELETE_CHIPMENT = "http://127.0.0.1:8000/api/deleteShipment";
 const BASE_URL_UPDATE_CHIPMENT = "http://127.0.0.1:8000/api/updateShipment";
 const BASE_URL_GET_ALL_SHIPMENTS = "http://127.0.0.1:8000/api/showShipments";
-
-
-
 //sign up a new user
 export const signUpApi = async (user) => {
     let userInfo=  await axios.post(`${BASE_URL_SIGNUP}`,user)
-        // .then(response => {
-        //     return response.data.p ;
-        // })
-        // .catch(error =>console.log(error));
     userInfo= await user.json();
-    return userInfo;
-    
+    return userInfo;  
 }
 //user login
 export const signInApiRequest = async(user) => {
@@ -33,9 +22,9 @@ export const signInApiRequest = async(user) => {
           headers: { 
             "Content-Type": "application/json",
             "Accept": "application/json"
-        }    
+            }    
         }
-      )
+    )
       .then(response=>console.warn(response))
       .catch(err=>console.log(err));
     return results;
