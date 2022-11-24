@@ -20,21 +20,20 @@ const ShippingTableRows = () => {
 
   return (
     <TableBody>
-        {
-            //each object inside the reponse json object
+        {    //each object inside the reponse json object
             Array.from(data).map((item) => (
                 <TableRow
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                    <TableCell component="th" scope="row">
-                        {item.paybill}  
-                    </TableCell>
+                    <TableCell component="th" scope="row">{item.paybill}</TableCell>
                     <TableCell align="right">{item.customer_name}</TableCell>
                     <TableCell align="right">{item.customer_phone}</TableCell>
                     <TableCell align="right">{item.customer_address}</TableCell>
                     <TableCell align="right"> 
+                    {/* edit and delete buttons */}
                     <Button onClick={() => deleteShipmentApi(item.paybill)}><DeleteIcon /></Button>
                     <Button onClick={handleOpenUpdateShipment}><EditIcon /></Button>
+                    {/* update shipment component */}
                     <UpdateShipment open={openUpdateShipment} setOpen={setOpenUpdateShipment} shipmentInfo={item} />
                     </TableCell>
                 </TableRow>
