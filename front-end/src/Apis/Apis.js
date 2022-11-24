@@ -36,11 +36,9 @@ export const signInApiRequest = async(user) => {
         }    
         }
       )
-      .then(response=>console.log(response))
+      .then(response=>console.warn(response))
       .catch(err=>console.log(err));
-    results=await results.json();
     return results;
-    
 }
 
 export const createShipmentApi = async (shipment) => {
@@ -61,7 +59,7 @@ export const getAllShipmentsRequest = async ({data,setData}) => {
         //     console.log(response.data);
         
         // })
-        // .catch(error =>console.log(error));
+        // .catch(error =>  console.log(error));
     results = await results.json();
     setData(results);
 }

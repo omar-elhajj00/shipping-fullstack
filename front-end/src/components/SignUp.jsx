@@ -56,7 +56,7 @@ const SignUp = () => {
         localStorage.setItem('userInfo',JSON.stringify(signUpReq));
         await sleep(600);
         handleClickSnack();
-        await sleep(1500);
+        await sleep(1000);
         navigate("./Home");
         
     }
