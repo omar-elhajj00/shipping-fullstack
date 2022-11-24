@@ -2,7 +2,7 @@
 Shipping is a full stack web application where the admin can register, login, create, edit, delete and show all the detailed shipments.
 
 <img
-  src="/Youtube-React.png"
+  src="/shipping.png"
   alt="shipping"
   style="display: inline-block; margin: 0 auto; max-width: 100px">
 
