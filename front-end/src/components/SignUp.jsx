@@ -16,23 +16,21 @@ const SignUp = () => {
         open: false,
         vertical: 'bottom',
         horizontal: 'left',
-      });
-
+    });
     const { vertical, horizontal, open } = snack;
     const handleClickSnack = () => {
         setSnack({
             ...snack,
           open: true,
         });
-      };
-
+    };
     const handleCloseSnack = () => {
         setSnack({
         ...snack,
         open: false,
         });
-      };
-
+    };
+    //navigation
     const navigate= useNavigate();
     const [user, setUser] = useState({
         name: "",
@@ -40,18 +38,16 @@ const SignUp = () => {
         phoneNumber:"",
         password: ""
     });
-
+    //user parameter for api axios req
     const {name, email,phoneNumber, password} =user;
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
     }
-
     //sleep function 
     function sleep(ms){
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     async function signUpOperation() {
-        // const history = useHistory();
         const signUpReq =signUpApi(user);
         localStorage.setItem('userInfo',JSON.stringify(signUpReq));
         await sleep(600);
