@@ -49,9 +49,9 @@ const SignUp = () => {
     async function signUpOperation() {
         const signUpReq =signUpApi(user);
         localStorage.setItem('userInfo',JSON.stringify(signUpReq));
-        await sleep(600);
+        await sleep(400);
         handleClickSnack();
-        await sleep(1000);
+        await sleep(800);
         navigate("./Home");
     }
     
