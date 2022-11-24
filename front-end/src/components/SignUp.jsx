@@ -17,22 +17,22 @@ const SignUp = () => {
         vertical: 'bottom',
         horizontal: 'left',
       });
+
     const { vertical, horizontal, open } = snack;
     const handleClickSnack = () => {
         setSnack({
             ...snack,
           open: true,
-          
-        });
-      };
-      const handleCloseSnack = () => {
-        setSnack({
-          ...snack,
-          open: false,
         });
       };
 
-      
+    const handleCloseSnack = () => {
+        setSnack({
+        ...snack,
+        open: false,
+        });
+      };
+
     const navigate= useNavigate();
     const [user, setUser] = useState({
         name: "",
@@ -40,6 +40,7 @@ const SignUp = () => {
         phoneNumber:"",
         password: ""
     });
+
     const {name, email,phoneNumber, password} =user;
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -59,7 +60,6 @@ const SignUp = () => {
         navigate("./Home");
     }
     
-    
     return(
         <Grid>
             <Paper elevation={1} style={paperStyle}>
@@ -74,7 +74,7 @@ const SignUp = () => {
                 <FormGroup>
                     <FormControlLabel control={<Checkbox />} label="I accept the terms and conditions" style={inputStyle} />
                 </FormGroup>
-                        <Button type="submit" color="primary" variant="contained" onClick={signUpOperation} fullWidth>Sign Up</Button>
+                <Button type="submit" color="primary" variant="contained" onClick={signUpOperation} fullWidth>Sign Up</Button>
             </Paper>
             {/* success message */}
             <Snackbar
@@ -85,8 +85,6 @@ const SignUp = () => {
                 key={vertical + horizontal}
             />
         </Grid>
-        
-        
     )
 }
 
