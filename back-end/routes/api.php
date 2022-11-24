@@ -25,5 +25,10 @@ Route::post('login', [UserController::class, 'login']);
 Route::post('createShipment', [ShipmentController::class, 'create']);
 //delete shipment
 Route::delete('deleteShipment/{id}', [ShipmentController::class, 'deleteShipment']);
+//update shipment
+Route::get('getShipmentId/{id}', [ShipmentController::class, 'get_shipment_id']);
+
+
+
 //show all shipments
 Route::get('showShipments', [ShipmentController::class, 'show']);

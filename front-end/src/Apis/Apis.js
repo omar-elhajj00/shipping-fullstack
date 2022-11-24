@@ -55,7 +55,7 @@ export const deleteShipmentApi = async(paybill) => {
 }
 //update shipment
 export const updateShipmentApi = async (shipment) => {
-    await axios.post(BASE_URL_CREATE_CHIPMENT, shipment)
+    await axios.put(BASE_URL_UPDATE_CHIPMENT, shipment)
         .then(response => console.log(response.data.json()))
         .catch(error => console.log(error));
 }

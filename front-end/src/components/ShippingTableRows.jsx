@@ -13,21 +13,10 @@ import UpdateShipment from './UpdateShipment';
 const ShippingTableRows = () => {
     const [data, setData] = useState([]);
     const [openUpdateShipment, setOpenUpdateShipment] = React.useState(false);
-    const handleOpenUpdateShipment = () => setOpenUpdateShipment(true);
+    const handleOpenUpdateShipment = (item) => setOpenUpdateShipment(true);
 
     useEffect(() => {
-        // async function getShipments(){
-        //     let results= await fetch("http://127.0.0.1:8000/api/showShipments");
-        //         // .then(response=>console.log(response.data))
-        //         // .catch(error =>console.log(error));
-        //     results = await results.json();
-        //     setData(results);
-        // }
-        // getShipments();
-        getAllShipmentsRequest({data,setData});
-        
-            
-        
+        getAllShipmentsRequest({data,setData});    
     },[]);
     
     console.warn("result", data); 
@@ -47,8 +36,8 @@ const ShippingTableRows = () => {
                         <TableCell align="right">{item.customer_address}</TableCell>
                         <TableCell align="right"> 
                             <Button onClick={() => deleteShipmentApi(item.paybill)}><DeleteIcon /></Button>
-                            <Button onClick={() => handleOpenUpdateShipment({openUpdateShipment,setOpenUpdateShipment},item)}><EditIcon /></Button>
-                            <UpdateShipment open={openUpdateShipment} setOpen={setOpenUpdateShipment} />
+                            <Button onClick={handleOpenUpdateShipment}><EditIcon /></Button>
+                            <UpdateShipment open={openUpdateShipment} setOpen={setOpenUpdateShipment} shipmentInfo={item} />
                         </TableCell>
                     </TableRow>
                     )

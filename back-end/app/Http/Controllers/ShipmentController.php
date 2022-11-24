@@ -109,4 +109,8 @@ class ShipmentController extends Controller
             return response()->json(["message"=> "Something wrong! kindly check if you entered the correct paybill or the item already deleted "]);
         }
     }
+
+    public function get_shipment_id($id){
+        return Shipment::find($id);
+    }
 }

@@ -37,7 +37,6 @@ const Navbar = () => {
           <Button color="inherit" onClick={handleOpen}>Create</Button>
           <CreateShipment open={open} setOpen={setOpen} />
           <Button color="inherit" onClick={logout}>Logout</Button>
-          
         </Toolbar>
       </AppBar>
     </Box>

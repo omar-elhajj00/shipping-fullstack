@@ -9,8 +9,9 @@ import { useState } from 'react';
 import {updateShipmentApi} from '../Apis/Apis'
 
 
-const UpdateShipment = ({open,setOpen},shipmentInfo) => {
-  
+const UpdateShipment = ({open,setOpen,shipmentInfo}) => {
+  // console.warn(shipmentInfo);
+    // debugger
     const style = {
         position: 'absolute',
         top: '50%',
@@ -24,15 +25,15 @@ const UpdateShipment = ({open,setOpen},shipmentInfo) => {
       };
       //shipment state 
       const [shipment, setShipment]=useState({
-        paybill: shipmentInfo.paybill,
+        shipmentId: shipmentInfo.id,
+        paybill: shipmentInfo.paybill,  
         customerName: shipmentInfo.customer_name,
         customerAddress: shipmentInfo.customer_address,
         customerPhone: shipmentInfo.customer_phone
       });
 
-
-      const {paybill, customerName, customerAddress, customerPhone} = shipment;
-      debugger
+      const {shipmentId, paybill, customerName, customerAddress, customerPhone} = shipment;
+      // debugger
       //when one of the input changes
       const onInputChange = (e) => {
         setShipment({...shipment, [e.target.name]: e.target.value});
@@ -52,7 +53,7 @@ const UpdateShipment = ({open,setOpen},shipmentInfo) => {
                 <Grid item xs={6}>
                     <Tooltip placement="right-start">
                         <Typography id="modal-modal-title" variant='h6' component="h2" sx={{ mb:1 }} >
-                            Create Shipment
+                            Update Shipment
                         </Typography>   
                         
                     </Tooltip>
@@ -68,7 +69,6 @@ const UpdateShipment = ({open,setOpen},shipmentInfo) => {
             <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
             <Button variant="contained" size="large" onClick={() => updateShipmentApi(shipment)}>Update</Button>
-
         </Box>
       </Modal>  
   )
