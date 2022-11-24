@@ -62,11 +62,6 @@ export const updateShipmentApi = async (shipment) => {
 //get all the shipment list
 export const getAllShipmentsRequest = async ({data,setData}) => {
     let results = await fetch(BASE_URL_GET_ALL_SHIPMENTS);
-        // .then(response=>{ by3mlo mashekel
-        //     console.log(response.data);
-        
-        // })
-        // .catch(error =>  console.log(error));
     results = await results.json();
     setData(results);
 }

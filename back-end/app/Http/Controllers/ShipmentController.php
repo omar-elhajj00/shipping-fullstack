@@ -90,7 +90,23 @@ class ShipmentController extends Controller
      */
     public function update(Request $request, Shipment $shipment)
     {
-        //
+        $id= $request->input('shipmentId');
+        $paybill = $request->input('paybill');
+        $customerName = $request->input('customerName');
+        $customerAddress = $request->input('customerAddress');
+        $customerPhone = $request->input('customerPhone');
+
+        //implement the data int database
+        $result = Shipment::where('id', $id);
+        if ($result->update([
+            'paybill' => $paybill,
+            'customer_name' => $customerName,
+            'customer_address' => $customerAddress,
+            'customer_phone' => $customerPhone
+
+        ])){
+            return response()->json(['message' =>'update complete']);
+        }
     }
 
     /**
