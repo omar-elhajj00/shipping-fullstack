@@ -54,9 +54,9 @@ const SignUp = () => {
         // const history = useHistory();
         const signUpReq =signUpApi(user);
         localStorage.setItem('userInfo',JSON.stringify(signUpReq));
-        await sleep(1000);
+        await sleep(600);
         handleClickSnack();
-        await sleep(3000);
+        await sleep(1500);
         navigate("./Home");
         
     }

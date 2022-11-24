@@ -16,7 +16,7 @@ const BASE_URL_GET_ALL_SHIPMENTS = "http://127.0.0.1:8000/api/showShipments";
 export const signUpApi = async (user) => {
     let userInfo=  await axios.post(`${BASE_URL_SIGNUP}`,user)
         // .then(response => {
-        //     return response.data ;
+        //     return response.data.p ;
         // })
         // .catch(error =>console.log(error));
     userInfo= await user.json();
@@ -25,11 +25,22 @@ export const signUpApi = async (user) => {
 }
 
 //user login
-export const signInApi = async(user) => {
-    const {data} = await axios.post(BASE_URL_LOGIN,user);
-    return data;
-    // .then(response => console.log(response.data))
-    // .catch(error => console.log(error));
+export const signInApiRequest = async(user) => {
+    let results= axios.post(
+        BASE_URL_LOGIN,
+        JSON.stringify(user),
+        {
+          headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }    
+        }
+      )
+      .then(response=>console.log(response))
+      .catch(err=>console.log(err));
+    results=await results.json();
+    return results;
+    
 }
 
 export const createShipmentApi = async (shipment) => {

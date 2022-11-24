@@ -5,7 +5,8 @@ import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
 import { useState } from "react";
 // import {useHistory} from 'react-router-dom';
-import {signInApi} from '../Apis/Apis'
+import {signInApiRequest} from '../Apis/Apis'
+import { useNavigate } from "react-router-dom";
 
 
 const Login = ({handleChange}) => {
@@ -13,12 +14,12 @@ const Login = ({handleChange}) => {
     const paperStyle={padding:20, height: '75vh', width:250 ,margin: '20px auto'};
     const avatartStyle={backgroundColor:'green'};
     const inputStyle={margin:10};
-
-    const [message, setMessage]=useState('');
     const [user, setUser] = useState({
         email: "",
         password: ""
     });
+    //navigation
+    const navigate=useNavigate();
 
     // let history = useHistory();
 
@@ -37,15 +38,10 @@ const Login = ({handleChange}) => {
             alert('Password field is empty')
         }
 
-        signInApi(user);
-            // .then(response =>{
-            // console.log(response.data);
-            // message==="" ? setMessage(response.data): setMessage(response.data);
-            // localStorage.setItem("users", response.data);
-
-            // history.push("/Home");
-        // })
-        // .catch(error => {console.log(error)})
+        const results= signInApiRequest(user);
+        localStorage.setItem("userInfo",JSON.stringify(results));
+        navigate('./Home');
+         
         
         ;
     }
