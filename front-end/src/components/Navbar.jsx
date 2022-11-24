@@ -8,27 +8,20 @@ import CreateShipment from './CreateShipment';
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    // const handleClose = () => setOpen(false);
     const user= JSON.parse(localStorage.getItem("userInfo"));
-
+    //navigation
     const navigate = useNavigate();
-
+    //logout function
     const logout = () => {
       localStorage.clear();
       navigate("/");
     }
-
+    
   return (
     <Box sx={{ flexGrow: 6 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
