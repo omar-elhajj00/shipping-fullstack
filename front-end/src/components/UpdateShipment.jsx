@@ -6,10 +6,11 @@ import Modal from '@mui/material/Modal';
 import { Grid, TextField, Tooltip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
-import {UpdateShipmentApi} from '../Apis/Apis'
+import {updateShipmentApi} from '../Apis/Apis'
 
 
-const UpdateShipment = ({open,setOpen},ShipmentInfo) => {
+const UpdateShipment = ({open,setOpen},shipmentInfo) => {
+  
     const style = {
         position: 'absolute',
         top: '50%',
@@ -23,14 +24,15 @@ const UpdateShipment = ({open,setOpen},ShipmentInfo) => {
       };
       //shipment state 
       const [shipment, setShipment]=useState({
-        paybill: "",
-        customerName: "",
-        customerAddress: "",
-        customerPhone: ""
+        paybill: shipmentInfo.paybill,
+        customerName: shipmentInfo.customer_name,
+        customerAddress: shipmentInfo.customer_address,
+        customerPhone: shipmentInfo.customer_phone
       });
 
-      const {paybill, customerName, customerAddress, customerPhone} = shipment;
 
+      const {paybill, customerName, customerAddress, customerPhone} = shipment;
+      debugger
       //when one of the input changes
       const onInputChange = (e) => {
         setShipment({...shipment, [e.target.name]: e.target.value});
@@ -65,7 +67,7 @@ const UpdateShipment = ({open,setOpen},ShipmentInfo) => {
             <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name ' sx={{ mb: 2 }} fullWidth name="customerName" value={customerName} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
-            <Button variant="contained" size="large" onClick={() => UpdateShipmentApi(shipment)}>Submit</Button>
+            <Button variant="contained" size="large" onClick={() => updateShipmentApi(shipment)}>Update</Button>
 
         </Box>
       </Modal>  

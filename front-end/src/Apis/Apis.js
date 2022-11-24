@@ -8,6 +8,7 @@ const BASE_URL_LOGIN= "http://127.0.0.1:8000/api/login";
 //shipments urls
 const BASE_URL_CREATE_CHIPMENT = "http://127.0.0.1:8000/api/createShipment";
 const BASE_URL_DELETE_CHIPMENT = "http://127.0.0.1:8000/api/deleteShipment";
+const BASE_URL_UPDATE_CHIPMENT = "http://127.0.0.1:8000/api/updateShipment";
 const BASE_URL_GET_ALL_SHIPMENTS = "http://127.0.0.1:8000/api/showShipments";
 
 
@@ -40,7 +41,7 @@ export const signInApiRequest = async(user) => {
       .catch(err=>console.log(err));
     return results;
 }
-
+//create shipment
 export const createShipmentApi = async (shipment) => {
     await axios.post(BASE_URL_CREATE_CHIPMENT, shipment)
         .then(response => console.log(response.data.json()))
@@ -51,6 +52,12 @@ export const deleteShipmentApi = async(paybill) => {
     await axios.delete(`${BASE_URL_DELETE_CHIPMENT}/${paybill}`)
         .then(response => console.log(response.data))
         .catch(error => console.log(error))
+}
+//update shipment
+export const updateShipmentApi = async (shipment) => {
+    await axios.post(BASE_URL_CREATE_CHIPMENT, shipment)
+        .then(response => console.log(response.data.json()))
+        .catch(error => console.log(error));
 }
 //get all the shipment list
 export const getAllShipmentsRequest = async ({data,setData}) => {

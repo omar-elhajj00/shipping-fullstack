@@ -8,8 +8,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import { deleteShipmentApi, getAllShipmentsRequest } from '../Apis/Apis';
 import axios from 'axios';
 
+import UpdateShipment from './UpdateShipment';
+
 const ShippingTableRows = () => {
     const [data, setData] = useState([]);
+    const [openUpdateShipment, setOpenUpdateShipment] = React.useState(false);
+    const handleOpenUpdateShipment = () => setOpenUpdateShipment(true);
 
     useEffect(() => {
         // async function getShipments(){
@@ -28,17 +32,6 @@ const ShippingTableRows = () => {
     
     console.warn("result", data); 
 
-    // function createData(name, calories, fat, carbs, protein) {
-    //     return { name, calories, fat, carbs, protein };
-    // }
-    // const rows = [
-    //     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    //     createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    //     createData('Eclair', 262, 16.0, 24, 6.0),
-    //     createData('Cupcake', 305, 3.7, 67, 4.3),
-    //     createData('Gingerbread', 356, 16.0, 49, 3.9),
-    // ];
-    // console.log(data);
   return (
     <TableBody>
             {
@@ -54,26 +47,13 @@ const ShippingTableRows = () => {
                         <TableCell align="right">{item.customer_address}</TableCell>
                         <TableCell align="right"> 
                             <Button onClick={() => deleteShipmentApi(item.paybill)}><DeleteIcon /></Button>
-                            <Button onClick={()=>{}}><EditIcon /></Button>
+                            <Button onClick={() => handleOpenUpdateShipment({openUpdateShipment,setOpenUpdateShipment},item)}><EditIcon /></Button>
+                            <UpdateShipment open={openUpdateShipment} setOpen={setOpenUpdateShipment} />
                         </TableCell>
                     </TableRow>
                     )
                 )
             }
-            {/* <TableRow> 
-            <TableCell component="th" scope="row">
-            {row.name}
-            </TableCell>
-             <TableCell align="right">{row.calories}</TableCell>
-            <TableCell align="right">{row.fat}</TableCell>
-            <TableCell align="right">{row.carbs}</TableCell>
-            <TableCell align="right">
-                <Button onClick={() => deleteShipmentApi('asdasdfkdjfbkjfdsjkjykilop')}><DeleteIcon /></Button>
-                <Button onClick={()=>{}}><EditIcon /></Button>
-            </TableCell>
-            </TableRow> */}
-        
-        
     </TableBody>
   )
 }
