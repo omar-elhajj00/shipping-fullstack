@@ -38,9 +38,14 @@ const UpdateShipment = ({open,setOpen,shipmentInfo}) => {
       const onInputChange = (e) => {
         setShipment({...shipment, [e.target.name]: e.target.value});
       }
-      
-
+    
     const handleClose = () => setOpen(false);
+    //update operation
+    const updateOperation = () => {
+      updateShipmentApi(shipment);
+      handleClose();
+    }
+    
   return (
     <Modal
         open={open}
@@ -68,7 +73,7 @@ const UpdateShipment = ({open,setOpen,shipmentInfo}) => {
             <TextField id="standard-basic" label="customer name" variant="standard" placeholder='customer name ' sx={{ mb: 2 }} fullWidth name="customerName" value={customerName} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer address" variant="standard" placeholder='customer address' sx={{ mb: 2 }} fullWidth name="customerAddress" value={customerAddress} onChange={e => onInputChange(e)} required/>
             <TextField id="standard-basic" label="customer phone number" variant="standard" placeholder='customer phone number' sx={{ mb: 2 }} fullWidth name="customerPhone" value={customerPhone} onChange={e => onInputChange(e)} required/>
-            <Button variant="contained" size="large" onClick={() => updateShipmentApi(shipment)}>Update</Button>
+            <Button variant="contained" size="large" onClick={updateOperation}>Update</Button>
         </Box>
       </Modal>  
   )
